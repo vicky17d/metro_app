@@ -7,6 +7,8 @@ gem 'rails', '3.2.12'
 
 gem 'sqlite3'
 gem 'rename'
+gem 'bcrypt-ruby', '3.0.1'
+gem 'will_paginate', '3.0.3'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -24,6 +26,10 @@ gem 'jquery-rails'
 
 gem 'therubyracer'
 gem 'metro-ui-rails'
+
+group :production do
+  gem 'pg', '0.12.2'
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

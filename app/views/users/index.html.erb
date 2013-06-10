@@ -1,0 +1,30 @@
+<% provide(:title, 'All users') %>
+<h1>All users</h1>
+
+<% if @users.empty? %>
+ <p> No users found </p>
+<% else %> 
+<%= will_paginate %>
+<ul class="users">
+  <%= render @users  %>
+</ul>
+
+<%= will_paginate %>
+<%end%>
+<div class="carousel" style="height: 500px;" data-role="carousel" data-param-effect="fade" data-param-direction="left" data-param-period="9999999999999" data-param-markers="on" >
+                                <div class="slides">
+<% @users.each do |user| %>
+                                    <div class="slide image" >
+    <div class="tile bg-color-orange"></div>
+  <%= user.name  %>
+  <%= user.email  %>
+                                    </div>
+
+<%end%>
+
+                                </div>
+                                <span class="control left">&#8249;</span>
+                                <span class="control right">&#8250;</span>
+                            </div>
+                        </div>
+

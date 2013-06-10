@@ -1,4 +1,10 @@
 MetroApp::Application.routes.draw do
+
+
+  resources :users
+ 
+  match '/help',    to: 'static_pages#help'
+  match '/about',   to: 'static_pages#about'
   get "static_pages/home"
 
   root to: "static_pages#home"
