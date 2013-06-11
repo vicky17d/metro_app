@@ -1,7 +1,16 @@
 MetroApp::Application.routes.draw do
 
 
+  get "weeks/new"
+
+  get "weeks/edit"
+
+  get "weeks/show"
+
+  get "weeks/index"
+
   resources :users
+  resources :weeks
  
   match '/help',    to: 'static_pages#help'
   match '/about',   to: 'static_pages#about'
