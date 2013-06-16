@@ -1,27 +1,27 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<h1>Home</h1>
 
 
+<div class="carousel" style="height: 500px;" data-role="carousel"  data-param-direction="left" data-param-period="9999999999999" data-param-markers="on" >
+                                <div class="slides">
+                                    <div class="slide image" >
+    <div class="tile bg-color-orange">All users</div>
+<% @users.each do |user| %>
+  <%= link_to user.name, user  %>
+  <%= user.email  %></br>
+<%end%>
+                                    </div>
+                                    <div class="slide image" >
+    <div class="tile bg-color-orange">All weeks</div>
+<% @weeks.each do |week| %>
+  <%= link_to week.name, week  %>
+  <%= week.status  %></br>
+<%end%>
+                                    </div>
 
-<div class="carousel" data-role="carousel">
-        <div class="slides">
-            <div class="slide image" id="slide1">
-                <img />
-                <div class="description">
-                    Description text here...</br>Description text here...</br>Description text here...</br>Description text here...</br>Description text here...</br>Description text here...</br>Description text here...</br>Description text here...</br>Description text here...</br>Description text here...</br>Description text here...</br>Description text here...</br>Description text here...</br>Description text here...</br>Description text here...</br>
-                </div>
-            </div>
- 
-            <div class="slide mixed" id="slide2">
-                <img />
-                <div class="description">
-                    Description text here...Description text here...</br>Description text here...</br>Description text here...</br>Description text here...</br>Description text here...</br>Description text here...</br>Description text here...</br>Description text here...</br>Description text here...</br>Description text here...</br>Description text here...</br>Description text here...</br>Description text here...</br>Description text here...</br>
-                </div>
-            </div>
-            ...
-        </div>
- 
-        <span class="control left">‹</span>
-        <span class="control right">›</span>
- 
-    </div>
+
+                                </div>
+                                <span class="control left">&#8249;</span>
+                                <span class="control right">&#8250;</span>
+                            </div>
+                        </div>
+

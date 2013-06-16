@@ -24,3 +24,26 @@
   </aside>
 
 </div>
+
+<% if @user.weeks.count > 0 %>
+<div class="carousel" style="height: 500px;" data-role="carousel"  data-param-direction="left" data-param-period="9999999999999" data-param-markers="on" >
+                                <div class="slides">
+<% @user.weeks.each do |week| %>
+                                    <div class="slide image" >
+    <div class="tile bg-color-orange"></div>
+  <%= week.name  %>
+  <%= week.status  %>
+                                    </div>
+
+<%end%>
+
+                                </div>
+                                <span class="control left">&#8249;</span>
+                                <span class="control right">&#8250;</span>
+                            </div>
+                        </div>
+
+<% else %>
+<div><h3>This user does not have any weeks. Really?? Not possible!! </h3> </div>
+<% end %>
+

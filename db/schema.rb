@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130610040617) do
+ActiveRecord::Schema.define(:version => 20130616222117) do
 
   create_table "users", :force => true do |t|
     t.string   "name"
@@ -21,6 +21,24 @@ ActiveRecord::Schema.define(:version => 20130610040617) do
     t.string   "remember_token"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+  end
+
+  create_table "userweeks", :force => true do |t|
+    t.string   "summary"
+    t.string   "jiras"
+    t.integer  "user_id"
+    t.integer  "week_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "weeks", :force => true do |t|
+    t.string   "name"
+    t.string   "startDate"
+    t.string   "endDate"
+    t.string   "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end
