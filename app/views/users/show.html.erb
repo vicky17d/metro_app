@@ -6,44 +6,62 @@
 	<% end %>
 </li>
 <% end %>
-<div class="row">
-  <aside class="span4">
-    <section>
-      <h1>
-        <%= @user.name %>
-      </h1>
+<div>
+	<h1> <%= @user.name %> </h1>
 
-        <%= @user.email %>
-      <% if @user.admin?  %>
-         <p> Admin   </p>
+	<%= @user.email %>
+	<% if @user.admin?  %>
+	<p>
+		Admin
+	</p>
 
-      <% else  %>
-         <p> User   </p>
-      <% end %>
-    </section>
-  </aside>
+	<% else  %>
+	<p>
+		User
+	</p>
+	<% end %>
 
 </div>
 
 <% if @user.weeks.count > 0 %>
 <div class="carousel" style="height: 500px;" data-role="carousel"  data-param-direction="left" data-param-period="9999999999999" data-param-markers="on" >
-                                <div class="slides">
-<% @user.weeks.each do |week| %>
-                                    <div class="slide image" >
-    <div class="tile bg-color-orange"></div>
-  <%= week.name  %>
-  <%= week.status  %>
-                                    </div>
+	<div class="slides">
+		<% @user.weeks.each do |week| %>
+		<div class="slide image" >
+			<div class="grid">
+                             <div class="row">
+				<div class="span1">
+					<p>
+					        	side1
+					</p>
+				</div>
+				<div class="span10">
+					<div class="tile bg-color-orange"></div>
+					<%= week.name  %>
+					<%= week.status  %>
+				</div>
+				<div class="span5">
+					<div class="tile bg-color-orange"></div>
+					<%= week.name  %>
+					<%= week.status  %>
+					<p>
+						side2 is here on the right and more right and more right
+					</p>
+				</div>
+			      </div>
+			</div>
+		</div>
 
-<%end%>
+		<%end%>
 
-                                </div>
-                                <span class="control left">&#8249;</span>
-                                <span class="control right">&#8250;</span>
-                            </div>
-                        </div>
+	</div>
+	<span class="control left">&#8249;</span>
+	<span class="control right">&#8250;</span>
+</div>
 
 <% else %>
-<div><h3>This user does not have any weeks. Really?? Not possible!! </h3> </div>
+<div>
+	<h3>This user does not have any weeks. Really?? Not possible!! </h3>
+</div>
 <% end %>
 
