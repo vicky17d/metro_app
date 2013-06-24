@@ -7,19 +7,43 @@
 </li>
 <% end %>
 <div>
-	<h1> <%= @user.name %> </h1>
+					
+    <ul class="listview fluid">
+					  <li class="bg-color-pinkDark fg-color-white">
+                                            <div class="data">
+                                               <%= @user.name  %>
+                                            </div>
+                                          </li>
+					  <li class="bg-color-pinkDark fg-color-white">
+                                            <div class="icon">
+                                             <i class="icon-mail"></i>
+                                            </div>
+                                            <div class="data">
+                                             <h4>Email</h4>
+                                             <p> <%= @user.email %> </p>
+                                            </div>
+                                          </li>
+					  <li class="bg-color-pinkDark fg-color-white">
+                                            <div class="icon">
+                                             <i class="icon-mail"></i>
+                                            </div>
+                                          </li>
+					  <li class="bg-color-pinkDark fg-color-white">
+                                            <div class="data">
+					       <% if @user.admin?  %>
+					       <p>
+						       Admin
+					       </p>
 
-	<%= @user.email %>
-	<% if @user.admin?  %>
-	<p>
-		Admin
-	</p>
+					       <% else  %>
+					       <p>
+						       User
+					       </p>
+					       <% end %>
+                                            </div>
+                                          </li>
+    </ul>
 
-	<% else  %>
-	<p>
-		User
-	</p>
-	<% end %>
 
 </div>
 
@@ -35,17 +59,53 @@
 					        	side1
 					</p>
 				</div>
-				<div class="span10">
-					<div class="tile bg-color-orange"></div>
-					<%= week.name  %>
-					<%= week.status  %>
+				<div class="span11">
+					<div class="tile double bg-color-red"></div>
+					<div class="tile bg-color-teal"></div>
+					<ul class="listview fluid">
+					  <li class="bg-color-pinkDark fg-color-white">
+                                            <div class="data">
+                                               <%= week.name  %>
+					       <%= week.status  %>
+                                            </div>
+                                          </li>
+                                          <li class="selected">
+                                             <div class="data"><h4>Hello</h4></div>
+					  </li>
+                                          <li class="selected">
+                                             <div class="data"><h4>Hello</h4></div>
+					  </li>
+                                          <li class="selected">
+                                             <div class="data"><h4>Hello</h4></div>
+					  </li>
+                                          <li class="selected">
+                                             <div class="data"><h4>Hello</h4></div>
+					  </li>
+					  <li class="bg-color-pinkDark fg-color-white">
+                                            <div class="icon">
+                                             <i class="icon-mail"></i>
+                                            </div>
+                                          </li>
+					  <li class="bg-color-pinkDark fg-color-white">
+                                            <div class="icon">
+                                             <i class="icon-home"></i>
+                                            </div>
+                                          </li>
+					  <li class="bg-color-pinkDark fg-color-white">
+                                            <div class="icon">
+                                             <i class="icon-chrome"></i>
+                                            </div>
+                                          </li>
+ 
+
+                                        </ul>
 				</div>
-				<div class="span5">
-					<div class="tile bg-color-orange"></div>
-					<%= week.name  %>
-					<%= week.status  %>
+				<div class="span3">
+					<div class="tile bg-color-green"></div>
+				</div>
+				<div class="span1">
 					<p>
-						side2 is here on the right and more right and more right
+					        	side2
 					</p>
 				</div>
 			      </div>
