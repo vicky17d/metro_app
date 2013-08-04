@@ -1,19 +1,18 @@
 MetroApp::Application.routes.draw do
 
 
-  get "weeks/new"
-
-  get "weeks/edit"
-
-  get "weeks/show"
-
-  get "weeks/index"
-
   resources :users
   resources :weeks
  
+ 
   match '/help',    to: 'static_pages#help'
   match '/about',   to: 'static_pages#about'
+
+  resources :sessions, only: [:new, :create, :destroy]
+  match '/signup',  to: 'users#new',            via: 'get'
+  match '/signin',  to: 'sessions#new',         via: 'get'
+  match '/signout', to: 'sessions#destroy',     via: 'delete'
+
   get "static_pages/home"
 
   root to: "static_pages#home"

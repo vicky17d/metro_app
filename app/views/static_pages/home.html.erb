@@ -4,18 +4,43 @@
 <div class="carousel" style="height: 500px;" data-role="carousel"  data-param-direction="left" data-param-period="9999999999999" data-param-markers="on" >
                                 <div class="slides">
                                     <div class="slide image" >
-    <div class="tile bg-color-orange">All users</div>
+<% if @users.count == 0  %>
+<p> No users yet...</p>
+<% else %>
+ <ul class="listview fluid">
 <% @users.each do |user| %>
-  <%= link_to user.name, user  %>
+                                          <li class="bg-color-pinkDark fg-color-white">
+                                            <div class="icon">
+                                             <i class="icon-mail icon-small"></i>
+                                            </div>
+                                            <div class="data">
+  <%= link_to user.name, user  %></br>
   <%= user.email  %></br>
+                                            </div>
+                                          </li>
 <%end%>
-                                    </div>
+ </ul>
+<%end%>
+                     </div>
                                     <div class="slide image" >
-    <div class="tile bg-color-orange">All weeks</div>
+<% if @users.count == 0  %>
+<p> No users yet...</p>
+<% else %>
+ <ul class="listview fluid">
 <% @weeks.each do |week| %>
-  <%= link_to week.name, week  %>
+                                          <li class="bg-color-pinkDark fg-color-white">
+                                            <div class="icon">
+                                             <i class="icon-mail icon-small"></i>
+                                            </div>
+                                            <div class="data">
+  <%= link_to week.name, week  %></br>
   <%= week.status  %></br>
+                                            </div>
+                                          </li>
 <%end%>
+ </ul>
+<%end%>
+
                                     </div>
 
 

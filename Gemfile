@@ -11,6 +11,7 @@ end
 gem 'rename'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'will_paginate', '3.0.3'
+gem 'rspec-rails', '2.11.0'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -33,6 +34,10 @@ group :production do
   gem 'pg', '0.12.2'
 end
 
+group :test do
+  gem 'capybara', '1.1.2'
+  gem 'factory_girl_rails', '4.1.0'
+end
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

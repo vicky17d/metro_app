@@ -10,13 +10,16 @@
 					
     <ul class="listview fluid">
 					  <li class="bg-color-pinkDark fg-color-white">
+                                            <div class="icon">
+                                             <i class="icon-mail icon-small"></i>
+                                            </div>
                                             <div class="data">
                                                <%= @user.name  %>
                                             </div>
                                           </li>
 					  <li class="bg-color-pinkDark fg-color-white">
                                             <div class="icon">
-                                             <i class="icon-mail"></i>
+                                             <i class="icon-mail icon-small"></i>
                                             </div>
                                             <div class="data">
                                              <h4>Email</h4>
@@ -25,8 +28,9 @@
                                           </li>
 					  <li class="bg-color-pinkDark fg-color-white">
                                             <div class="icon">
-                                             <i class="icon-mail"></i>
+                                             <i class="icon-mail icon-small"></i>
                                             </div>
+                                            <div>PL QA link</div>
                                           </li>
 					  <li class="bg-color-pinkDark fg-color-white">
                                             <div class="data">
@@ -48,7 +52,7 @@
 </div>
 
 <% if @user.weeks.count > 0 %>
-<div class="carousel" style="height: 500px;" data-role="carousel"  data-param-direction="left" data-param-period="9999999999999" data-param-markers="on" >
+<div class="carousel" style="height: 500px;" data-role="carousel"  data-param-direction="right" data-param-period="9999999999999" data-param-markers="on" >
 	<div class="slides">
 		<% @user.weeks.each do |week| %>
 		<div class="slide image" >
@@ -83,17 +87,17 @@
 					  </li>
 					  <li class="bg-color-pinkDark fg-color-white">
                                             <div class="icon">
-                                             <i class="icon-mail"></i>
+                                             <i class="icon-mail icon-small"></i>
                                             </div>
                                           </li>
 					  <li class="bg-color-pinkDark fg-color-white">
                                             <div class="icon">
-                                             <i class="icon-home"></i>
+                                             <i class="icon-home icon-small"></i>
                                             </div>
                                           </li>
 					  <li class="bg-color-pinkDark fg-color-white">
                                             <div class="icon">
-                                             <i class="icon-chrome"></i>
+                                             <i class="icon-chrome icon-small"></i>
                                             </div>
                                           </li>
  

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MetroLessApp</title>
+  <title><%= full_title(yield(:title)) %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -10,7 +10,11 @@
 <body class="metrouicss">
 
 <%= render 'layouts/header' %>
-
+<div class="notices">
+<% flash.each do |key, value| %>
+        <div class="bg-color-<%= key %>" style="height: 30px;"><%= value %></div>
+      <% end %>
+</div>
 <%= yield %>
 
 
