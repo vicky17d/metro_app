@@ -27,7 +27,7 @@ end
 
 gem 'jquery-rails'
 
-#gem 'therubyracer'
+gem 'therubyracer'
 gem 'metro-ui-rails'
 
 group :production do
