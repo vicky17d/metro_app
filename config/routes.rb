@@ -1,6 +1,9 @@
 MetroApp::Application.routes.draw do
 
 
+  get "projects/new"
+
+  resources :projects
   resources :users
   resources :weeks
  
