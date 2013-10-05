@@ -9,13 +9,25 @@
 </head>
 <body class="metrouicss">
 
-<%= render 'layouts/header' %>
-<div class="notices">
-<% flash.each do |key, value| %>
-        <div class="bg-color-<%= key %>" style="height: 30px;"><%= value %></div>
-      <% end %>
-</div>
-<%= yield %>
+        <div class="page-header">
+            <div class="page-header-content">
+				<%= render 'layouts/header' %>
+            </div>
+        </div>
+ 
+        <div class="page-region">
+            <div class="page-region-content">
+				
+				<div class="notices">
+				<% flash.each do |key, value| %>
+					<div class="bg-color-<%= key %>" style="height: 30px;"><%= value %></div>
+				<% end %>
+				</div>
+					<%= yield %>
+            </div>
+        </div>
+  
+
 
 
 </body>
