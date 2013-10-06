@@ -56,6 +56,14 @@
 	<div class="slides">
 		<% @user.weeks.each do |week| %>
 		<div class="slide image" >
+			<div class="grid">
+                             <div class="row">
+				<div class="span1">
+					<p>
+					        	side1
+					</p>
+				</div>
+				<div class="span11">
 					<div class="tile double bg-color-red"></div>
 					<div class="tile bg-color-teal"></div>
 					<ul class="listview fluid">
@@ -95,6 +103,17 @@
  
 
                                         </ul>
+				</div>
+				<div class="span3">
+					<div class="tile bg-color-green"></div>
+				</div>
+				<div class="span1">
+					<p>
+					        	side2
+					</p>
+				</div>
+			      </div>
+			</div>
 		</div>
 
 		<%end%>
