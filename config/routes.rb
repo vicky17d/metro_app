@@ -10,6 +10,7 @@ MetroApp::Application.routes.draw do
  
   match '/help',    to: 'static_pages#help'
   match '/about',   to: 'static_pages#about'
+  match '/pending',   to: 'static_pages#pending'
 
   resources :sessions, only: [:new, :create, :destroy]
   match '/signup',  to: 'users#new',            via: 'get'

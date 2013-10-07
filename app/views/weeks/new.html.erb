@@ -1,5 +1,6 @@
 <% provide(:title, 'New week') %>
 <h1>New Week</h1>
+<div class="calnedar" data-role="calendar"></div>
     <%= form_for(@week) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
       <%= f.label :name %>
@@ -14,7 +15,16 @@
 
       <%= f.label :status %>
       <%= f.text_field :status %>
-
+    <div class="grid">
+        <div class="row">
+	     <div class="span2">
+<div class="input-control text datepicker" data-role="datepicker">
+        <input type="text" />
+        <button class="btn-date"></button>
+    </div>
+    </div>
+    </div>
+    </div>
 </br>
       <%= f.submit "Create new Week" %>
     <% end %>
