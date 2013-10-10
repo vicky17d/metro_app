@@ -1,6 +1,7 @@
 MetroApp::Application.routes.draw do
 
-
+  put "userweeks/updateSummary"
+  
   get "projects/new"
 
   resources :projects

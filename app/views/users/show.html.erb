@@ -56,8 +56,7 @@
 	<div class="slides">
 		<% @user.weeks.each do |week| %>
 		<div class="slide image" >
-					<div class="tile double bg-color-red"></div>
-					<div class="tile bg-color-teal"></div>
+					
 					<ul class="listview fluid">
 					  <li class="bg-color-pinkDark fg-color-white">
                                             <div class="data">
@@ -65,36 +64,26 @@
 					       <%= week.status  %>
                                             </div>
                                           </li>
-                                          <li class="selected">
-                                             <div class="data"><h4>Hello</h4></div>
-					  </li>
-                                          <li class="selected">
-                                             <div class="data"><h4>Hello</h4></div>
-					  </li>
-                                          <li class="selected">
-                                             <div class="data"><h4>Hello</h4></div>
-					  </li>
-                                          <li class="selected">
-                                             <div class="data"><h4>Hello</h4></div>
-					  </li>
-					  <li class="bg-color-pinkDark fg-color-white">
-                                            <div class="icon">
-                                             <i class="icon-mail icon-small"></i>
+                         <li class="bg-color-pinkDark fg-color-white">
+                                            <div class="data">
+                                               
+												 <% userweek =  @user.userweeks.where(week_id: week.id).first %> 
+												 <%= userweek.summary %>
+												 
                                             </div>
-                                          </li>
-					  <li class="bg-color-pinkDark fg-color-white">
-                                            <div class="icon">
-                                             <i class="icon-home icon-small"></i>
-                                            </div>
-                                          </li>
-					  <li class="bg-color-pinkDark fg-color-white">
-                                            <div class="icon">
-                                             <i class="icon-chrome icon-small"></i>
-                                            </div>
-                                          </li>
+                                          </li>                 
+
  
 
                                         </ul>
+										
+				<%= form_for(userweek, url: {userweekId: userweek.id, userId: @user.id, controller: "userweeks", action: "updateSummary" }, remote: true) do |f| %>
+													
+													<% summaryId =  %[summary#{userweek.id}] %>
+													<%= f.text_field  :summary, id: summaryId %>
+
+													<%= f.submit "Update", class: "btn " %>
+				<% end %>
 		</div>
 
 		<%end%>
