@@ -138,7 +138,7 @@
 				
 					
 					<div class="button-set" data-role="button-set" style="display: inline-block;">
-						<%= link_to accomplishment.title, "", class: "button default"   %><%= link_to accomplishment, url: {userId: @user.id, controller: "accomplishments" }, class: "tool-button", id: "deleteAccomplishmentId"+accomplishment.id.to_s, remote: true, method: :delete do %>
+						<%= link_to accomplishment.title, "#", class: "button default"   %><%= link_to accomplishment, url: {userId: @user.id, controller: "accomplishments" }, class: "tool-button", id: "deleteAccomplishmentId"+accomplishment.id.to_s, remote: true, method: :delete do %>
 							<i class="icon-cancel-2 icon-small"></i>
 						<% end %>
 					</div>
@@ -153,6 +153,70 @@
 													<%= f.text_field  :title, id: "accomplishmentTextBox" %>
 
 													<%= f.submit "Add"  %>
+				<% end %>
+				
+				
+<!-- ================================================================================================= -->
+<!-- ===========================================Riskitems============================================= -->				
+
+						<div class="notices">
+						<div id="Summary<%=userweek.id%>", class="bg-color-blue fg-color-white" style="height: 25px; text-align: center;">Risk items / Blockers</div>
+					</div>			
+				
+				
+				<div id="listOfRiskitems">
+				
+				<% userweek.riskitems.each do |riskitem| %>
+				
+					
+					<div class="button-set" data-role="button-set" style="display: inline-block;">
+						<%= link_to riskitem.title, "#", class: "button default bg-color-red"   %><%= link_to riskitem, url: {userId: @user.id, controller: "riskitems" }, class: "tool-button", id: "deleteRiskitemId"+riskitem.id.to_s, remote: true, method: :delete do %>
+							<i class="icon-cancel-2 icon-small"></i>
+						<% end %>
+					</div>
+				<% end %>
+				</div>
+					
+					
+				<%= form_for(Riskitem.new, url: {userId: @user.id, controller: "riskitems" }, remote: true) do |f| %>
+													
+													<%= f.hidden_field  :userweek_id, value: userweek.id %>
+													
+													<%= f.text_field  :title, id: "riskitemTextBox" %>
+
+													<%= f.submit "Add", class: "button default bg-color-red"  %>
+				<% end %>
+				
+				
+<!-- ================================================================================================= -->
+<!-- ===========================================Plan for next week==================================== -->				
+
+						<div class="notices">
+						<div id="Summary<%=userweek.id%>", class="bg-color-blue fg-color-white" style="height: 25px; text-align: center;">Plan for next week</div>
+					</div>			
+				
+				
+				<div id="listOfNextplans">
+				
+				<% userweek.nextplans.each do |nextplan| %>
+				
+					
+					<div class="button-set" data-role="button-set" style="display: inline-block;">
+						<%= link_to nextplan.title, "#", class: "button default bg-color-red"   %><%= link_to nextplan, url: {userId: @user.id, controller: "nextplans" }, class: "tool-button", id: "deleteNextplanId"+nextplan.id.to_s, remote: true, method: :delete do %>
+							<i class="icon-cancel-2 icon-small"></i>
+						<% end %>
+					</div>
+				<% end %>
+				</div>
+					
+					
+				<%= form_for(Nextplan.new, url: {userId: @user.id, controller: "nextplans" }, remote: true) do |f| %>
+													
+													<%= f.hidden_field  :userweek_id, value: userweek.id %>
+													
+													<%= f.text_field  :title, id: "nextplanTextBox" %>
+
+													<%= f.submit "Add", class: "button default bg-color-red"  %>
 				<% end %>
 				
 				
