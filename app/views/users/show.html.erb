@@ -96,6 +96,10 @@
 													<%= f.submit "Update" %>
 				<% end %>
 				
+<!-- ================================================================================================= -->
+						<div class="notices">
+						<div id="Summary<%=userweek.id%>", class="bg-color-blue fg-color-white" style="height: 25px; text-align: center;">Jiras opened</div>
+					</div>			
 				
 				<div id="listOfJiras">
 				
@@ -103,9 +107,7 @@
 				
 					
 					<div class="button-set" data-role="button-set" style="display: inline-block;">
-						<%= link_to jira.jiranumber, JIRA+jira.jiranumber, target: "_blank", class: "button default"   %>
-						
-						<%= link_to jira, url: {userId: @user.id, controller: "jiras" }, class: "tool-button", id: "deleteButtonId"+jira.jiranumber, remote: true, method: :delete do %>
+						<%= link_to jira.jiranumber, JIRA+jira.jiranumber, target: "_blank", class: "button default"   %><%= link_to jira, url: {userId: @user.id, controller: "jiras" }, class: "tool-button", id: "deleteButtonId"+jira.jiranumber, remote: true, method: :delete do %>
 							<i class="icon-cancel-2 icon-small"></i>
 						<% end %>
 					</div>
@@ -116,10 +118,15 @@
 				<%= form_for(Jira.new, url: {userId: @user.id, controller: "jiras" }, remote: true) do |f| %>
 													
 													<%= f.hidden_field  :userweek_id, value: userweek.id %>
+													<%= f.hidden_field  :jirastatus, value: "opened" %>
 													<%= f.text_field  :jiranumber, id: "jiraTextbox" %>
 
 													<%= f.submit "Add"  %>
 				<% end %>
+				
+				
+<!-- ================================================================================================= -->				
+
 		</div>
 
 		<%end%>
