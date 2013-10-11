@@ -16,7 +16,16 @@ class JirasController < ApplicationController
     end
   end
   
-  
+  def destroy
+    #@user = User.find(params[:userId])
+	@jira=Jira.find(params[:id])
+    @jira.destroy
+    #flash[:success] = "Project destroyed."
+    respond_to do |format|
+         format.html { redirect_to @user }
+         format.js 
+    end
+  end
     
     
 end

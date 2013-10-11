@@ -11,7 +11,7 @@
     <ul class="listview fluid">
 					  <li class="bg-color-pinkDark fg-color-white">
                                             <div class="icon">
-                                             <i class="icon-mail icon-small"></i>
+                                             <i class="icon-user icon-small"></i>
                                             </div>
                                             <div class="data">
                                                <%= @user.name  %>
@@ -90,26 +90,25 @@
 						
 				<%= form_for(userweek, url: {userweekId: userweek.id, userId: @user.id, controller: "userweeks", action: "updateSummary" }, remote: true) do |f| %>
 													
-													<% summaryId =  %[summary#{userweek.id}] %>
-													<%= f.text_field  :summary, id: summaryId %>
+													
+													<%= f.text_field  :summary, id: "summaryTextBox" %>
 
 													<%= f.submit "Update" %>
 				<% end %>
 				
-				<ul class="listview fluid">
-					<li style="height: 30px;">
-                        <div class="data">
-							<%= week.name  %>
-							<%= week.status  %>
-                        </div>
-				</li>
-				</ul>
+				
 				<div id="listOfJiras">
 				
 				<% userweek.jiras.each do |jira| %>
 				
-				
-				<%= link_to jira.jiranumber, JIRA+jira.jiranumber, target: "_blank", class: "button default"   %>
+					
+					<div class="button-set" data-role="button-set" style="display: inline-block;">
+						<%= link_to jira.jiranumber, JIRA+jira.jiranumber, target: "_blank", class: "button default"   %>
+						
+						<%= link_to jira, url: {userId: @user.id, controller: "jiras" }, class: "tool-button", id: "deleteButtonId"+jira.jiranumber, remote: true, method: :delete do %>
+							<i class="icon-cancel-2 icon-small"></i>
+						<% end %>
+					</div>
 				<% end %>
 				</div>
 					
