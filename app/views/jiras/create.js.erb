@@ -2,9 +2,8 @@
 $('#jiraTextbox').val("");
 //$('#listOfJiras').append('<a  class="button default" target="_blank" href="http://jira/browse/<%= @jira.jiranumber %>" ><%= @jira.jiranumber %></a>')
 
-//$('#listOfJiras').append('<div class="button-set" data-role="button-set" style="display: inline-block;"><a  class="button default" target="_blank" href="http://jira/browse/<%= @jira.jiranumber %>" ><%= @jira.jiranumber %></a><button class="tool-button"><i class="icon-cancel-2 icon-small"></i></button></div>')
 
-$('#listOfJiras').append('<div class="button-set" data-role="button-set" style="display: inline-block;"><%= link_to @jira.jiranumber, @jira.jiranumber, target: "_blank", class: "button default"%><%= link_to @jira, url: {userId: @user.id, controller: "jiras" }, class: "tool-button", id: "deleteButtonId"+@jira.jiranumber, remote: true, method: :delete do %><i class="icon-cancel-2 icon-small"></i><% end %></div>')
+$('#listOfJiras').append('<div class="button-set" data-role="button-set" style="display: inline-block;"><%= link_to @jira.jiranumber, "http://jira/browse/"+@jira.jiranumber, target: "_blank", class: "button default"%><%= link_to @jira, url: {userId: @user.id, controller: "jiras" }, class: "tool-button", id: "deleteButtonId"+@jira.jiranumber, remote: true, method: :delete do %><i class="icon-cancel-2 icon-small"></i><% end %></div>')
 
 
 

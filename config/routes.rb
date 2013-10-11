@@ -2,6 +2,7 @@ MetroApp::Application.routes.draw do
 
   put "userweeks/updateSummary"
   put "jiras/addJira"
+  put "accomplishments/addAccomplishment"
   
   get "projects/new"
 
@@ -9,6 +10,7 @@ MetroApp::Application.routes.draw do
   resources :users
   resources :weeks
   resources :jiras
+  resources :accomplishments
  
  
   match '/help',    to: 'static_pages#help'

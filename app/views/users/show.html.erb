@@ -52,7 +52,7 @@
 </div>
 
 <% if @user.weeks.count > 0 %>
-<div class="carousel" style="height: 500px;" data-role="carousel"  data-param-direction="right" data-param-period="9999999999999" data-param-markers="on" >
+<div class="carousel" style="height: 800px;" data-role="carousel"  data-param-direction="right" data-param-period="9999999999999" data-param-markers="on" >
 	<div class="slides">
 		<% @user.weeks.each do |week| %>
 		<div class="slide image" >
@@ -75,7 +75,7 @@
                                                
 												 <% userweek =  @user.userweeks.where(week_id: week.id).first %> 
 												 Userweekid#<%= userweek.id %>
-												 <%= userweek.summary %>
+												 
 												 
 												 
                                             </div>
@@ -96,7 +96,7 @@
 													<%= f.submit "Update" %>
 				<% end %>
 				
-<!-- ================================================================================================= -->
+<!-- =========================================Jiras=================================================== -->
 						<div class="notices">
 						<div id="Summary<%=userweek.id%>", class="bg-color-blue fg-color-white" style="height: 25px; text-align: center;">Jiras opened</div>
 					</div>			
@@ -124,9 +124,39 @@
 													<%= f.submit "Add"  %>
 				<% end %>
 				
-				
 <!-- ================================================================================================= -->				
+<!-- =====================================Accomplishments============================================= -->				
 
+						<div class="notices">
+						<div id="Summary<%=userweek.id%>", class="bg-color-blue fg-color-white" style="height: 25px; text-align: center;">Major Accomplishments</div>
+					</div>			
+				
+				
+				<div id="listOfAccomplishments">
+				
+				<% userweek.accomplishments.each do |accomplishment| %>
+				
+					
+					<div class="button-set" data-role="button-set" style="display: inline-block;">
+						<%= link_to accomplishment.title, "", class: "button default"   %><%= link_to accomplishment, url: {userId: @user.id, controller: "accomplishments" }, class: "tool-button", id: "deleteAccomplishmentId"+accomplishment.id.to_s, remote: true, method: :delete do %>
+							<i class="icon-cancel-2 icon-small"></i>
+						<% end %>
+					</div>
+				<% end %>
+				</div>
+					
+					
+				<%= form_for(Accomplishment.new, url: {userId: @user.id, controller: "accomplishments" }, remote: true) do |f| %>
+													
+													<%= f.hidden_field  :userweek_id, value: userweek.id %>
+													
+													<%= f.text_field  :title, id: "accomplishmentTextBox" %>
+
+													<%= f.submit "Add"  %>
+				<% end %>
+				
+				
+<!-- ================================================================================================= -->
 		</div>
 
 		<%end%>

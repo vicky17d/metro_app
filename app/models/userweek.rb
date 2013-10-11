@@ -4,6 +4,9 @@ class Userweek < ActiveRecord::Base
   has_many :jiras, dependent: :destroy
   accepts_nested_attributes_for :jiras
   
+  has_many :accomplishments, dependent: :destroy
+  accepts_nested_attributes_for :accomplishments
+  
   belongs_to :user
   belongs_to :week
 end
