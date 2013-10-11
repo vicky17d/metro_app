@@ -15,17 +15,19 @@
             </div>
         </div>
  
-        <div class="page-region">
-            <div class="page-region-content">
+	<div class="page-region">
+		<div class="page-region-content">
+
 				
-				<div class="notices">
-				<% flash.each do |key, value| %>
-					<div class="bg-color-<%= key %>" style="height: 30px;"><%= value %></div>
-				<% end %>
-				</div>
-					<%= yield %>
-            </div>
-        </div>
+						<div class="notices">
+						<% flash.each do |key, value| %>
+						<div class="bg-color-<%= key %>" style="height: 30px;"><%= value %></div>
+						<% end %>
+						</div>
+						<%= yield %>
+
+		</div>
+	</div>
   
 
 
