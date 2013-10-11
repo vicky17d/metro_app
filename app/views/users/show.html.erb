@@ -58,17 +58,25 @@
 		<div class="slide image" >
 					
 					<ul class="listview fluid">
-					  <li class="bg-color-pinkDark fg-color-white">
-                                            <div class="data">
-                                               <%= week.name  %>
-					       <%= week.status  %>
-                                            </div>
-                                          </li>
-                         <li class="bg-color-pinkDark fg-color-white">
+					<li class="bg-color-pinkDark fg-color-white">
+                        <div class="data">
+							<%= week.name  %>
+							<%= week.status  %>
+                        </div>
+					</li>
+					<li class="bg-color-pinkDark fg-color-white">
+                        <div class="data">
+                                               
+					       
+                        </div>
+					</li>
+					<li class="bg-color-pinkDark fg-color-white">
                                             <div class="data">
                                                
 												 <% userweek =  @user.userweeks.where(week_id: week.id).first %> 
+												 Userweekid#<%= userweek.id %>
 												 <%= userweek.summary %>
+												 
 												 
                                             </div>
                                           </li>                 
@@ -76,13 +84,42 @@
  
 
                                         </ul>
-										
+					<div class="notices">
+						<div id="Summary<%=userweek.id%>", class="bg-color-blue fg-color-white" style="height: 25px; text-align: center;"><%= userweek.summary %></div>
+					</div>
+						
 				<%= form_for(userweek, url: {userweekId: userweek.id, userId: @user.id, controller: "userweeks", action: "updateSummary" }, remote: true) do |f| %>
 													
 													<% summaryId =  %[summary#{userweek.id}] %>
 													<%= f.text_field  :summary, id: summaryId %>
 
-													<%= f.submit "Update", class: "btn " %>
+													<%= f.submit "Update" %>
+				<% end %>
+				
+				<ul class="listview fluid">
+					<li style="height: 30px;">
+                        <div class="data">
+							<%= week.name  %>
+							<%= week.status  %>
+                        </div>
+				</li>
+				</ul>
+				<div id="listOfJiras">
+				
+				<% userweek.jiras.each do |jira| %>
+				
+				
+				<%= link_to jira.jiranumber, JIRA+jira.jiranumber, target: "_blank", class: "button default"   %>
+				<% end %>
+				</div>
+					
+					
+				<%= form_for(Jira.new, url: {userId: @user.id, controller: "jiras" }, remote: true) do |f| %>
+													
+													<%= f.hidden_field  :userweek_id, value: userweek.id %>
+													<%= f.text_field  :jiranumber, id: "jiraTextbox" %>
+
+													<%= f.submit "Add"  %>
 				<% end %>
 		</div>
 
