@@ -4,8 +4,13 @@ class UserweeksController < ApplicationController
 	@user = User.find(params[:userId])
 	
 	@userweekfound = Userweek.find(params[:userweekId])
+	if ( params[:userweek][:summary].size != 0 )
+		summary = params[:userweek][:summary]
+	else 
+		summary = "Summary.."
+	end
 	
-	if @userweekfound.update_attributes(summary: params[:userweek][:summary])
+	if @userweekfound.update_attributes(summary: summary)
       #flash[:success] = "Jiras updated "
       
 	   respond_to do |format|

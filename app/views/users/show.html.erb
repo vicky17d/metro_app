@@ -91,12 +91,13 @@
 						<div id="Summary<%=userweek.id%>", class="fg-color-blue" style="height: 25px; text-align: center;"><%= userweek.summary %></div>
 					</div>
 				-->
+				
 				<div ><h1 id="Summary<%=userweek.id%>" style="font-size: 46px; text-align: center;"><%= userweek.summary %></h1></div>
 				
 				<%= form_for(userweek, url: {userweekId: userweek.id, userId: @user.id, controller: "userweeks", action: "updateSummary" }, remote: true) do |f| %>
 													
 													
-													<%= f.text_field  :summary, id: "summaryTextBox" %>
+													<%= f.text_field  :summary, id: "summaryTextBox"+userweek.id.to_s %>
 
 													<%= f.submit "Update" %>
 				<% end %>
@@ -106,7 +107,7 @@
 						<div id="Summary<%=userweek.id%>", class="bg-color-blueLight" style="height: 25px;"><i class="icon-box"></i>&nbspJiras opened</div>
 					</div>			
 				
-				<div id="listOfJiras">
+				<div id="listOfJiras<%=userweek.id.to_s%>">
 				
 				<% userweek.jiras.each do |jira| %>
 				
@@ -124,7 +125,7 @@
 													
 													<%= f.hidden_field  :userweek_id, value: userweek.id %>
 													<%= f.hidden_field  :jirastatus, value: "opened" %>
-													<%= f.text_field  :jiranumber, id: "jiraTextbox" %>
+													<%= f.text_field  :jiranumber, id: "jiraTextbox"+userweek.id.to_s %>
 
 													<%= f.submit "Add"  %>
 				<% end %>
@@ -137,7 +138,7 @@
 					</div>			
 				
 				
-				<div id="listOfAccomplishments">
+				<div id="listOfAccomplishments<%=userweek.id.to_s%>">
 				
 				<% userweek.accomplishments.each do |accomplishment| %>
 				
@@ -155,7 +156,7 @@
 													
 													<%= f.hidden_field  :userweek_id, value: userweek.id %>
 													
-													<%= f.text_field  :title, id: "accomplishmentTextBox" %>
+													<%= f.text_field  :title, id: "accomplishmentTextBox"+userweek.id.to_s %>
 
 													<%= f.submit "Add"  %>
 				<% end %>
@@ -169,7 +170,7 @@
 					</div>			
 				
 				
-				<div id="listOfRiskitems">
+				<div id="listOfRiskitems<%=userweek.id.to_s%>">
 				
 				<% userweek.riskitems.each do |riskitem| %>
 				
@@ -187,7 +188,7 @@
 													
 													<%= f.hidden_field  :userweek_id, value: userweek.id %>
 													
-													<%= f.text_field  :title, id: "riskitemTextBox" %>
+													<%= f.text_field  :title, id: "riskitemTextBox"+userweek.id.to_s %>
 
 													<%= f.submit "Add", class: "button default bg-color-red"  %>
 				<% end %>
@@ -201,7 +202,7 @@
 					</div>			
 				
 				
-				<div id="listOfNextplans">
+				<div id="listOfNextplans<%=userweek.id.to_s%>">
 				
 				<% userweek.nextplans.each do |nextplan| %>
 				
@@ -219,7 +220,7 @@
 													
 													<%= f.hidden_field  :userweek_id, value: userweek.id %>
 													
-													<%= f.text_field  :title, id: "nextplanTextBox" %>
+													<%= f.text_field  :title, id: "nextplanTextBox"+userweek.id.to_s %>
 
 													<%= f.submit "Add", class: "button default bg-color-red"  %>
 				<% end %>

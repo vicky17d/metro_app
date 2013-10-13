@@ -1,0 +1,34 @@
+<% if week.users.empty? %>
+<p> No users yet...</p>
+<% else %>
+ <ul class="listview fluid">
+ <li>
+
+
+                            <div class="icon">
+                                <i class="icon-user"></i>
+                            </div>
+
+                            <div class="data">
+                                <h2>All Users</h2>
+
+                            </div>
+                        </li>
+
+
+<% week.users.each do |user| %>
+                                          <li class="bg-color-pinkDark fg-color-white  clickableDiv customDimensions">
+                                            <div class="icon">
+                                             <i class="icon-user icon-small"></i>
+                                            </div>
+                                            <div class="data">
+
+   <%= link_to content_tag(:span, ""), user, html_options = { style: "color: #ffffff;"} %>
+   <%= user.name %> </br>
+   <%= user.email %>
+
+                                            </div>
+                                          </li>
+<%end%>
+ </ul>
+<%end%>

@@ -1,9 +1,9 @@
 
-$('#nextplanTextBox').val("");
+$('#nextplanTextBox<%=@userweekfound.id.to_s%>').val("");
 
 
 
-$('#listOfNextplans').append('<div class="button-set" data-role="button-set" style="display: inline-block;"><%= link_to @nextplan.title, "#", class: "button default bg-color-red"%><%= link_to @nextplan, url: {userId: @user.id, controller: "nextplans" }, class: "tool-button", id:  "deleteNextplanId"+@nextplan.id.to_s, remote: true, method: :delete do %><i class="icon-cancel-2 icon-small"></i><% end %></div>')
+$('#listOfNextplans<%=@userweekfound.id.to_s%>').append('<div class="button-set" data-role="button-set" style="display: inline-block;"><%= link_to @nextplan.title, "#", class: "button default bg-color-red"%><%= link_to @nextplan, url: {userId: @user.id, controller: "nextplans" }, class: "tool-button", id:  "deleteNextplanId"+@nextplan.id.to_s, remote: true, method: :delete do %><i class="icon-cancel-2 icon-small"></i><% end %></div>')
 
 
 

@@ -1,5 +1,5 @@
 $("#Summary<%=@userweekfound.id%>").text("<%=@userweekfound.summary%>")
-$('#summaryTextBox').val("");
+$('#summaryTextBox<%=@userweekfound.id.to_s%>').val("");
 
 
 

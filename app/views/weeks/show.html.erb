@@ -46,39 +46,21 @@
 <div class="carousel" style="height: 800px;" data-role="carousel"  data-param-direction="left" data-param-period="9999999999999" data-param-markers="on" >
 
 	<div class="slides">
+		<div class="slide image" >
+		
+			<%= render "weekhomepage" %>
+			<div ><h1 id="Summary" style="font-size: 46px; text-align: center;">Summary of the week</h1></div>
+			<h1 style="font-size: 36px; text-align: center;">Total number of users = <%= @week.users.count %> </h1>
+			 <%= render partial: "weeksummary", locals: {week: @week} %>
+		</div>
 		<% @week.users.each do |user| %>
-
+			
+			
 			<div class="slide image" >
 			
-			
-				<ul class="listview fluid">
-					<li class="bg-color-pinkDark fg-color-white">
-						
-                        <div class="data">
-							<%= link_to user.name, user, html_options = { style: "color: #ffffff;"} %>
-						
-						</div>
-					</li>
-					<li class="bg-color-pinkDark fg-color-white">
-                        <div class="data">
-                             <%= user.email  %>                  
-					       
-                        </div>
-					</li>
-					<li class="bg-color-pinkDark fg-color-white">
-                                            <div class="data">
-                                               
-												 <% userweek =  @week.userweeks.where(user_id: user.id).first %> 
-												 Userweekid#<%= userweek.id %>
-												 
-												 
-												 
-                                            </div>
-                                          </li>                 
-
- 
-
-                </ul>
+			<% userweek =  @week.userweeks.where(user_id: user.id).first %>
+			<%= render partial: "userdetails", locals: {user: user, userweek: userweek} %>
+				
 
 	<!-- 	<div class="notices">
 						<div id="Summary<%=userweek.id%>", class=" fg-color-blue" style="height: 25px; text-align: center; font-size: 56px;">Updates</div>
