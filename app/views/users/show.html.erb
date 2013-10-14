@@ -133,9 +133,9 @@
 				<li>
 				 
 				<%= form_for(userweek, url: {userweekId: userweek.id, userId: @user.id,  controller: "userweeks", action: "updateDone" }, remote: true) do |f| %>
-													<%= f.check_box :userweekstatus, id: "vickyd" %>
-													<label class="input-control checkbox">
 													
+													<label class="input-control checkbox">
+													<%= f.check_box :userweekstatus, id: "vickyd" %>
 													<span class="helper">Update done?</span>
 													
 							<% end %>
