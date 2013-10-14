@@ -3,7 +3,7 @@ $('#accomplishmentTextBox<%=@userweekfound.id.to_s%>').val("");
 
 
 
-$('#listOfAccomplishments<%=@userweekfound.id.to_s%>').append('<div class="button-set" data-role="button-set" style="display: inline-block;"><%= link_to @accomplishment.title, "#", class: "button default"%><%= link_to @accomplishment, url: {userId: @user.id, controller: "accomplishments" }, class: "tool-button", id:  "deleteAccomplishmentId"+@accomplishment.id.to_s, remote: true, method: :delete do %><i class="icon-cancel-2 icon-small"></i><% end %></div>')
+$('#listOfAccomplishments<%=@userweekfound.id.to_s%>').append('<div class="button-set" data-role="button-set" style="display: inline-block;"><%= link_to @accomplishment.title, "#", class: "button default"%><%= link_to @accomplishment, url: {userId: @user.id, controller: "accomplishments" }, class: "tool-button", id:  "deleteAccomplishmentId"+@accomplishment.id.to_s, remote: true, method: :delete do %><i class="icon-cancel-2 icon-small"></i><% end %></div></br>')
 
 
 

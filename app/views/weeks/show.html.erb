@@ -72,17 +72,17 @@
  <div class="row">
 
 	<div class="span4">
-		<table class="bordered">
+		<table class="bordered hovered striped">
 			<th>Jiras</th> 
 			<% userweek.jiras.each do |jira| %>
 			<tr>
-				<td><%= jira.jiranumber %></td>
+				<td><%= link_to jira.jiranumber, JIRA+jira.jiranumber, target: "_blank"  %></td>
 			</tr>
 			<% end %>
 		</table>
 	</div>
 	<div class="span4">
-		<table class="bordered">
+		<table class="bordered hovered striped">
 			<th>Major accomplishments</th> 
 			<% userweek.accomplishments.each do |accomplishment| %>
 			<tr>
@@ -93,10 +93,10 @@
 	</div>
 	
 	<div class="span4 ">
-		<table class="bordered">
+		<table class="bordered hovered striped">
 			<th>Risk items</th> 
 			<% userweek.riskitems.each do |riskitem| %>
-			<tr>
+			<tr class="error">
 				<td><%= riskitem.title %></td>
 			</tr>
 			<% end %>
@@ -104,7 +104,7 @@
 	</div>
 	
 	<div class="span4">
-		<table class="bordered">
+		<table class="bordered hovered striped">
 			<th>Plan for next week</th> 
 			<% userweek.nextplans.each do |nextplan| %>
 			<tr>

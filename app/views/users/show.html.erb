@@ -106,9 +106,13 @@
 				
 				<div ><h1 id="Summary<%=userweek.id%>" style="font-size: 46px; text-align: center;"><%= userweek.summary %></h1></div>
 				
+				
+				
+				
+				
 		<div class="grid">
 						<div class="row">
-							<div class="span11">
+							<div class="span10 offset1">
 				<%= form_for(userweek, url: {userweekId: userweek.id, userId: @user.id, controller: "userweeks", action: "updateSummary" }, remote: true) do |f| %>
 													
 													
@@ -141,7 +145,51 @@
 				</div>
 				</div>
 				</div>
+				
+<!-- =========================================Grid =================================================== -->
+
+		<div class="grid">
+			<div class="row">
+				<div class="span6 offset2">
+<!-- =====================================Accomplishments============================================= -->				
+
+						<div class="notices">
+						<div id="Summary<%=userweek.id%>", class="bg-color-blueLight" style="height: 25px;"><i class="icon-box"></i>&nbspMajor Accomplishments</div>
+					</div>			
+				
+				
+				<div id="listOfAccomplishments<%=userweek.id.to_s%>">
+				
+				<% userweek.accomplishments.each do |accomplishment| %>
+				
+					
+					<div class="button-set" data-role="button-set" style="display: inline-block;">
+						<%= link_to accomplishment.title, "#", class: "button default"   %><%= link_to accomplishment, url: {userId: @user.id, controller: "accomplishments" }, class: "tool-button", id: "deleteAccomplishmentId"+accomplishment.id.to_s, remote: true, method: :delete do %>
+							<i class="icon-cancel-2 icon-small"></i>
+						<% end %>
+						
+					</div>
+						</br>
+				<% end %>
+				</div>
+					
+					
+				<%= form_for(Accomplishment.new, url: {userId: @user.id, controller: "accomplishments" }, remote: true) do |f| %>
+													
+													<%= f.hidden_field  :userweek_id, value: userweek.id %>
+													
+													<%= f.text_field  :title, id: "accomplishmentTextBox"+userweek.id.to_s %>
+
+													<%= f.submit "Add"  %>
+				<% end %>
+				
+				
+<!-- ================================================================================================= -->							
+	
+				</div>
+				<div class="span6">
 <!-- =========================================Jiras=================================================== -->
+						
 						<div class="notices">
 						<div id="Summary<%=userweek.id%>", class="bg-color-blueLight" style="height: 25px;"><i class="icon-box"></i>&nbspJiras opened</div>
 					</div>			
@@ -169,39 +217,16 @@
 													<%= f.submit "Add"  %>
 				<% end %>
 				
-<!-- ================================================================================================= -->				
-<!-- =====================================Accomplishments============================================= -->				
-
-						<div class="notices">
-						<div id="Summary<%=userweek.id%>", class="bg-color-blueLight" style="height: 25px;"><i class="icon-box"></i>&nbspMajor Accomplishments</div>
-					</div>			
-				
-				
-				<div id="listOfAccomplishments<%=userweek.id.to_s%>">
-				
-				<% userweek.accomplishments.each do |accomplishment| %>
-				
-					
-					<div class="button-set" data-role="button-set" style="display: inline-block;">
-						<%= link_to accomplishment.title, "#", class: "button default"   %><%= link_to accomplishment, url: {userId: @user.id, controller: "accomplishments" }, class: "tool-button", id: "deleteAccomplishmentId"+accomplishment.id.to_s, remote: true, method: :delete do %>
-							<i class="icon-cancel-2 icon-small"></i>
-						<% end %>
-					</div>
-				<% end %>
-				</div>
-					
-					
-				<%= form_for(Accomplishment.new, url: {userId: @user.id, controller: "accomplishments" }, remote: true) do |f| %>
-													
-													<%= f.hidden_field  :userweek_id, value: userweek.id %>
-													
-													<%= f.text_field  :title, id: "accomplishmentTextBox"+userweek.id.to_s %>
-
-													<%= f.submit "Add"  %>
-				<% end %>
-				
-				
 <!-- ================================================================================================= -->
+				</div>
+			</div>
+		</div>
+		
+<!-- =========================================Grid =================================================== -->
+
+		<div class="grid">
+			<div class="row">
+				<div class="span6 offset2">
 <!-- ===========================================Riskitems============================================= -->				
 
 						<div class="notices">
@@ -234,6 +259,8 @@
 				
 				
 <!-- ================================================================================================= -->
+				</div>
+				<div class="span6">
 <!-- ===========================================Plan for next week==================================== -->				
 
 						<div class="notices">
@@ -247,10 +274,11 @@
 				
 					
 					<div class="button-set" data-role="button-set" style="display: inline-block;">
-						<%= link_to nextplan.title, "#", class: "button default bg-color-red"   %><%= link_to nextplan, url: {userId: @user.id, controller: "nextplans" }, class: "tool-button", id: "deleteNextplanId"+nextplan.id.to_s, remote: true, method: :delete do %>
+						<%= link_to nextplan.title, "#", class: "button default bg-color-yello"   %><%= link_to nextplan, url: {userId: @user.id, controller: "nextplans" }, class: "tool-button", id: "deleteNextplanId"+nextplan.id.to_s, remote: true, method: :delete do %>
 							<i class="icon-cancel-2 icon-small"></i>
 						<% end %>
 					</div>
+					</br>
 				<% end %>
 				</div>
 					
@@ -261,11 +289,15 @@
 													
 													<%= f.text_field  :title, id: "nextplanTextBox"+userweek.id.to_s %>
 
-													<%= f.submit "Add", class: "button default bg-color-red"  %>
+													<%= f.submit "Add", class: "button default bg-color-yello"  %>
 				<% end %>
 				
 				
 <!-- ================================================================================================= -->
+				</div>
+			</div>
+		</div>
+<!-- ======================================Grid end=================================================== -->
 		</div>
 
 		<%end%>
