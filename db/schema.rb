@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131011181608) do
+ActiveRecord::Schema.define(:version => 20131013020830) do
 
   create_table "accomplishments", :force => true do |t|
     t.string   "title"
@@ -65,8 +65,9 @@ ActiveRecord::Schema.define(:version => 20131011181608) do
     t.string   "jiras"
     t.integer  "user_id"
     t.integer  "week_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.boolean  "userweekstatus"
   end
 
   create_table "weeks", :force => true do |t|

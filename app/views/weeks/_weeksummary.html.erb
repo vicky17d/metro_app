@@ -2,30 +2,26 @@
 <p> No users yet...</p>
 <% else %>
  <ul class="listview fluid">
- <li>
-
-
-                            <div class="icon">
-                                <i class="icon-user"></i>
-                            </div>
-
-                            <div class="data">
-                                <h2>All Users</h2>
-
-                            </div>
-                        </li>
-
+ 
 
 <% week.users.each do |user| %>
-                                          <li class="bg-color-pinkDark fg-color-white  clickableDiv customDimensions">
+<% userweek =  week.userweeks.where(user_id: user.id).first %>
+<% userweekstatusclass = "" %>
+<% if (userweek.userweekstatus) %>
+<% userweekstatusclass = "selected" %>
+<% else %>
+<% userweekstatusclass = "bg-color-red fg-color-white" %>
+<% end %>
+                                          <li class=" <%= userweekstatusclass%> clickableDiv customDimensions">
                                             <div class="icon">
                                              <i class="icon-user icon-small"></i>
                                             </div>
                                             <div class="data">
 
-   <%= link_to content_tag(:span, ""), user, html_options = { style: "color: #ffffff;"} %>
-   <%= user.name %> </br>
-   <%= user.email %>
+											<%= link_to content_tag(:span, ""), user, html_options = { style: "color: #ffffff;"} %>
+											<%= user.name %> 
+											
+											
 
                                             </div>
                                           </li>

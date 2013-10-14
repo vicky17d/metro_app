@@ -33,6 +33,9 @@
                                             <div>PL QA link</div>
                                           </li>
 					  <li class="bg-color-pinkDark fg-color-white">
+										<div class="icon">
+                                             <i class="icon-mail icon-small"></i>
+                                        </div>
                                             <div class="data">
 					       <% if @user.admin?  %>
 					       <p>
@@ -82,7 +85,11 @@
 												 
                                             </div>
                                           </li>                 
-
+					<li class="bg-color-pinkDark fg-color-white">
+                        <div class="data">
+							Placeholder
+                        </div>
+					</li>
  
 
                                         </ul>
@@ -92,16 +99,48 @@
 					</div>
 				-->
 				
+
+<!-- ========================================= Summary  =================================================== -->				
+				
+				
+				
 				<div ><h1 id="Summary<%=userweek.id%>" style="font-size: 46px; text-align: center;"><%= userweek.summary %></h1></div>
 				
+		<div class="grid">
+						<div class="row">
+							<div class="span11">
 				<%= form_for(userweek, url: {userweekId: userweek.id, userId: @user.id, controller: "userweeks", action: "updateSummary" }, remote: true) do |f| %>
 													
 													
 													<%= f.text_field  :summary, id: "summaryTextBox"+userweek.id.to_s %>
 
-													<%= f.submit "Update" %>
+													<%= f.submit "Update Summary" %>
 				<% end %>
 				
+							
+							
+							
+					</div>
+
+<!-- =========================================Done Switch=================================================== -->				
+					<div class="span2">
+					<ul class="listview fluid">
+					
+				<li>
+				 
+				<%= form_for(userweek, url: {userweekId: userweek.id, userId: @user.id,  controller: "userweeks", action: "updateDone" }, remote: true) do |f| %>
+													<%= f.check_box :userweekstatus, id: "vickyd" %>
+													<label class="input-control checkbox">
+													
+													<span class="helper">Update done?</span>
+													
+							<% end %>
+						
+					</label>
+				</li>
+				</div>
+				</div>
+				</div>
 <!-- =========================================Jiras=================================================== -->
 						<div class="notices">
 						<div id="Summary<%=userweek.id%>", class="bg-color-blueLight" style="height: 25px;"><i class="icon-box"></i>&nbspJiras opened</div>

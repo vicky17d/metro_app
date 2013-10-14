@@ -3,6 +3,7 @@ MetroApp::Application.routes.draw do
   get "riskitems/new"
 
   put "userweeks/updateSummary"
+  put "userweeks/updateDone"
   put "jiras/addJira"
   put "accomplishments/addAccomplishment"
   

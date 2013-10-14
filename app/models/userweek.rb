@@ -1,6 +1,8 @@
 class Userweek < ActiveRecord::Base
-  attr_accessible :jiras, :summary, :user_id, :week_id
+  attr_accessible  :summary, :user_id, :week_id, :userweekstatus
   
+   after_initialize :init
+   
   has_many :jiras, dependent: :destroy
   accepts_nested_attributes_for :jiras
   
@@ -15,4 +17,9 @@ class Userweek < ActiveRecord::Base
   
   belongs_to :user
   belongs_to :week
+  
+  def init
+      
+      self.summary ||= "Summary..." #let's you set a default association
+    end
 end
