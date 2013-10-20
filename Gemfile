@@ -28,7 +28,8 @@ end
 gem 'jquery-rails'
 
 #gem 'therubyracer'
-gem 'metro-ui-rails'
+#gem 'metro-ui-rails'
+gem 'modern-ui-sass', git: 'git://github.com/thorn/modern-ui-sass.git'
 
 group :production do
   gem 'pg', '0.12.2'
