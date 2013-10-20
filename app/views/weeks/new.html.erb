@@ -4,27 +4,17 @@
     <%= form_for(@week) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
       <%= f.label :name %>
-      <%= f.text_field :name %>
+      <%= f.text_field :name, size: "20" %>
 
       <%= f.label :startDate %>
-      <%= f.text_field :startDate %>
+      <%= f.text_field :startDate, size: "20" %>
 
       <%= f.label :endDate %>
-      <%= f.text_field :endDate %>
+      <%= f.text_field :endDate, size: "20" %>
       
 
       <%= f.label :status %>
-      <%= f.text_field :status %>
-    <div class="grid">
-        <div class="row">
-	     <div class="span2">
-<div class="input-control text datepicker" data-role="datepicker">
-        <input type="text" />
-        <button class="btn-date"></button>
-    </div>
-    </div>
-    </div>
-    </div>
-</br>
+      <%= f.text_field :status, size: "20" %>
+      
       <%= f.submit "Create new Week" %>
     <% end %>
