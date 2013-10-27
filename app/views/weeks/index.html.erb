@@ -6,29 +6,40 @@
 <p> No weeks yet...</p>
 <% else %>
  <ul class="listview fluid">
- <li>
+ 
 
 
-                            <div class="icon">
-                                <i class="icon-drawer"></i>
-                            </div>
 
-                            <div class="data">
-                                <h2>All Weeks</h2>
+<li>
+     <div class="icon">
+         <i class="icon-drawer"></i>
+  </div>
 
-                            </div>
-                        </li>
+     <div class="data">
+        <h2>All Weeks</h2>
+     </div>
+</li>
+
+       <li class="bg-color-teal fg-color-white clickableDiv">
+         <div class="icon">
+          <i class="icon-drawer icon-small "></i>
+         </div>
+        <div class="data">
+	<%= link_to content_tag(:span, ""), new_week_path, html_options = { style: "color: #ffffff !important;"} %>
+		<h3 style="color: #ffffff">New Week</h3> 
+          </div>
+       </li>
 <% @weeks.each do |week| %>
-                                          <li class="bg-color-pinkDark fg-color-white clickableDiv">
-                                            <div class="icon">
-                                             <i class="icon-drawer icon-small"></i>
-                                            </div>
-                                            <div class="data">
-												<%= link_to content_tag(:span, ""), week, html_options = { style: "color: #ffffff;"} %>
-												<%= week.name %> </br>
-												<%= week.status  %></br>
-                                            </div>
-                                          </li>
+       <li class="bg-color-pinkDark fg-color-white clickableDiv">
+         <div class="icon">
+          <i class="icon-drawer icon-small"></i>
+         </div>
+        <div class="data">
+	<%= link_to content_tag(:span, ""), week, html_options = { style: "color: #ffffff;"} %>
+		<%= week.name %> </br>
+	<%= week.status  %></br>
+          </div>
+       </li>
 <%end%>
  </ul>
 <%end%>
