@@ -1,4 +1,4 @@
-Metro track app
+Metro track app!
 
 The app is called Track-it!. It is for weekly updates. A team-member can login and update what he did during the last week. The manager can go to current week's home page and see who has updated the status and who has not done yet.
 On the user or the week page, you can go left and right and explore and you will understand what exactly is happening. 
